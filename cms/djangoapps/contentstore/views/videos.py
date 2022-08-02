@@ -797,6 +797,8 @@ def storage_service_bucket():
         }
     else:
         params = {
+            'host': settings.AWS_S3_ENDPOINT_URL.replace('https://', ''),
+            'calling_format': s3.connection.OrdinaryCallingFormat(),
             'aws_access_key_id': settings.AWS_ACCESS_KEY_ID,
             'aws_secret_access_key': settings.AWS_SECRET_ACCESS_KEY
         }
